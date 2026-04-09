@@ -2,6 +2,9 @@
 
 A simple full-stack Task Manager application built with Node.js, Express, and React.
 
+Live Demo: [https://global-trend-two.vercel.app](https://global-trend-two.vercel.app)
+
+
 ## Prerequisites
 
 Before running the application, ensure you have the following installed:
