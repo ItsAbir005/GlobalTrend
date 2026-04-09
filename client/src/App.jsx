@@ -16,7 +16,7 @@ function App() {
     try {
       setLoading(true);
       const data = await getTasks();
-      setTasks(data);
+      setTasks(Array.isArray(data) ? data : []);
       setError(null);
     } catch (err) {
       setError('Failed to fetch tasks');
@@ -79,7 +79,7 @@ function App() {
         </div>
       ) : (
         <div className="task-list">
-          {tasks.length === 0 ? (
+          {!Array.isArray(tasks) || tasks.length === 0 ? (
             <p style={{ textAlign: 'center', color: 'var(--text-dim)' }}>No tasks found. Add one!</p>
           ) : (
             tasks.map(task => (
