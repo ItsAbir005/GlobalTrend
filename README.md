@@ -75,3 +75,17 @@ To deploy this application on Vercel, follow these steps:
 5. In your `client/src/api.js`, ensure it uses the environment variable:
    `const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/tasks';`
 
+## Assumptions and Trade-offs
+
+### Assumptions
+- **In-Memory Storage**: I assumed that for the scope of this technical exercise, a persistent database (like MongoDB or PostgreSQL) was not required. The backend uses an in-memory array to manage tasks, which resets on server restart.
+- **Single-User Scope**: The application assumes a single-user environment; there is no authentication or multi-tenant logic.
+- **Browser Compatibility**: Assumed modern browser support for glassmorphism (backdrop-filter) and ES modules.
+
+### Trade-offs
+- **Styling vs. Code Weight**: I prioritized a premium, high-fidelity UI using Vanilla CSS gradients and glassmorphism to provide a "wow" factor, which is slightly more complex than a basic layout but significantly improves the user experience.
+- **Simplified Structure**: To keep the project "simple" as requested, I merged component logic into `App.jsx` and kept the backend in a single `index.js` file. This is ideal for short exercises but would be refactored into a modular architecture for larger projects.
+- **No Comments**: strictly followed the requirement to omit comments in the code. This results in cleaner files but places a higher emphasis on self-documenting code and naming conventions.
+- **Standardized API**: Used a standard REST approach (GET, POST, PATCH, DELETE) for maximum compatibility with deployment platforms like Render and Vercel.
+
+
