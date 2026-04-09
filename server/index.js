@@ -3,7 +3,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -12,6 +12,10 @@ let tasks = [
   { id: 1, title: 'Learn React', completed: false, createdAt: new Date() },
   { id: 2, title: 'Build a Full Stack App', completed: true, createdAt: new Date() }
 ];
+
+app.get('/', (req, res) => {
+  res.send('Task Master API is running');
+});
 
 app.get('/tasks', (req, res) => {
   res.json(tasks);
